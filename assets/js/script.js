@@ -17,10 +17,9 @@ const PROJECTS = {
     title: "PGT Onboard",
     meta: "Mobile Application & Internet of Things",
     description:
-      "An onboarding and monitoring solution integrating mobile + IoT workflows. Includes device interaction, data tracking, and streamlined onboarding steps.",
+      "An mobile application and IoT system for public transportation onboarding and monitoring. Integrates GPS tracking, electronic payment, and real-time data for efficient transit management.",
 
     // ✅ Canva presentation embed
-    // Canva embeds commonly use the same design "view" URL with "?embed". :contentReference[oaicite:1]{index=1}
     presentationEmbedUrl:
       "https://www.canva.com/design/DAGlozxycKg/ackA8h_Qu7qxc9V2J0As6Q/view?embed",
     presentationViewUrl:
@@ -31,14 +30,14 @@ const PROJECTS = {
     title: "Fabellacares",
     meta: "Web development",
     description:
-      "A web system designed to support healthcare workflows and records. Focused on usability, reliable data entry, and streamlined operations.",
+      "A web system designed to support healthcare workflows and records. It also includes queue management with trend forecsting and patient tracking features for improved service delivery.",
   },
 
   patientcare: {
     title: "Patientcare",
     meta: "Web development",
     description:
-      "A patient-focused platform for managing records and service processes. Built to improve efficiency and data organization.",
+      "Developed PatientCare, a patient-centric hospital billing system with bill tracking, dispute handling, and cross-department workflow coordination.",
   },
 
   gomez: {
@@ -216,6 +215,7 @@ const embedArea = document.querySelector("[data-project-embed-area]");
 function closeProjectModal() {
   if (!projectModalContainer) return;
   projectModalContainer.classList.remove("active");
+  document.body.classList.remove("modal-open"); // ✅ prevent background scroll
   mediaGrid.innerHTML = "";
   embedArea.innerHTML = "";
 }
@@ -400,6 +400,7 @@ async function openProjectModal(key) {
   }
 
   projectModalContainer.classList.add("active");
+  document.body.classList.add("modal-open"); // ✅ prevent background scroll
 }
 
 /* Attach click handlers to projects */

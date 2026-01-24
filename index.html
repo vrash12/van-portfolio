@@ -27,6 +27,36 @@
     .icon-box .icon, .project-item-icon-box .icon, .select-icon .icon { width: 20px; height: 20px; }
     .social-link .icon { width: 18px; height: 18px; }
 
+    /* -----------------------------
+      ✅ Scrollable Project Modal
+      - Modal body scrolls
+      - Close button stays visible
+      - Prevent background scroll
+    ------------------------------ */
+    body.modal-open { overflow: hidden; }
+
+    /* Ensure the modal itself never exceeds viewport height */
+    .project-modal {
+      max-height: 86vh;
+      overflow: hidden; /* keep scroll inside modal-content */
+    }
+
+    /* Make modal content scrollable */
+    .project-modal .modal-content {
+      max-height: calc(86vh - 60px); /* leave space for close button area */
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-right: 6px; /* space for scrollbar */
+    }
+
+    /* Optional scrollbar styling (safe + subtle) */
+    .project-modal .modal-content::-webkit-scrollbar { width: 8px; }
+    .project-modal .modal-content::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+    }
+    .project-modal .modal-content { scrollbar-width: thin; }
+
     /* Project modal media grid */
     .project-media-grid {
       margin-top: 14px;
@@ -246,11 +276,11 @@
 
       <div class="sidebar-info">
         <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="RVan Rodolf Suliva" width="80" />
+          <img src="./assets/images/my-avatar.png" alt="Van Rodolf Suliva" width="80" />
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="RVan Rodolf Suliva">RVan Rodolf Suliva</h1>
+          <h1 class="name" title="Van Rodolf Suliva">Van Rodolf Suliva</h1>
           <p class="title">Full-Stack Developer</p>
         </div>
 
@@ -310,13 +340,13 @@
 
         <ul class="social-list">
           <li class="social-item">
-            <a href="#" class="social-link" aria-label="Facebook">
+            <a href="https://www.facebook.com/van.suliva" class="social-link" aria-label="Facebook">
               <svg class="icon"><use href="#i-facebook" xlink:href="#i-facebook"></use></svg>
             </a>
           </li>
 
           <li class="social-item">
-            <a href="#" class="social-link" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/van-rodolf-suliva-779569380/" class="social-link" aria-label="LinkedIn">
               <svg class="icon"><use href="#i-linkedin" xlink:href="#i-linkedin"></use></svg>
             </a>
           </li>
@@ -372,7 +402,7 @@
               </div>
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Web design</h4>
-                <p class="service-item-text">The most modern and high-quality design made.</p>
+                <p class="service-item-text">The most modern and quality design made.</p>
               </div>
             </li>
 
@@ -382,7 +412,7 @@
               </div>
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Web development</h4>
-                <p class="service-item-text">High-quality development of sites.</p>
+                <p class="service-item-text">Quality development of sites.</p>
               </div>
             </li>
 
@@ -392,7 +422,7 @@
               </div>
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Mobile apps</h4>
-                <p class="service-item-text">Development of applications and Android.</p>
+                <p class="service-item-text">Development of application for Android.</p>
               </div>
             </li>
 
@@ -573,7 +603,7 @@
                 </figure>
                 <h3 class="project-title">PGT Onboard</h3>
                 <p class="project-category">Mobile Application & Internet of Things</p>
-                <p class="project-desc">Onboarding + monitoring solution integrating mobile and IoT workflows.</p>
+                <p class="project-desc">Public transportation system that integrates GPS and electronic payment.</p>
               </a>
             </li>
 
@@ -634,9 +664,7 @@
 
         <section class="mapbox" data-mapbox>
           <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
-              width="400" height="300" loading="lazy"></iframe>
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1589.5008938373178!2d120.631865674142!3d15.664188966608393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391334d686b2be9%3A0xc214b50a0666e0f3!2sRamos%20National%20High%20School!5e0!3m2!1sen!2sph!4v1769218428189!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </figure>
         </section>
 
