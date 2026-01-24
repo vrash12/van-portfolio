@@ -15,6 +15,9 @@
 
   <!-- Small helpers: SVG icon sizing + modal gallery + viewer -->
   <style>
+    /* Make links NOT blue */
+    a { text-decoration: none; color: inherit; }
+
     /* SVG icon system */
     .icon {
       width: 20px;
@@ -26,6 +29,38 @@
     .service-icon-box .icon { width: 40px; height: 40px; }
     .icon-box .icon, .project-item-icon-box .icon, .select-icon .icon { width: 20px; height: 20px; }
     .social-link .icon { width: 18px; height: 18px; }
+
+    /* ✅ Make "What i'm doing" icons WHITE */
+    .service-icon-box { color: #fff; }
+
+    /* ✅ Make project short desc WHITE (and not link-blue) */
+    .project-desc { color: #fff !important; opacity: 0.85; }
+
+    /* ✅ Tech stack pills */
+    .project-stack {
+      margin: 10px 10px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .stack-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      border-radius: 999px;
+      font-size: 12px;
+      color: #fff;
+      line-height: 1;
+      user-select: none;
+    }
+    .stack-pill img {
+      width: 14px;
+      height: 14px;
+      display: block;
+    }
 
     /* -----------------------------
       ✅ Scrollable Project Modal
@@ -87,8 +122,6 @@
 
     .project-modal-meta { margin-top: 6px; opacity: 0.85; font-size: 14px; }
     .project-modal-desc { margin-top: 10px; line-height: 1.6; }
-
-    .project-desc { margin-top: 6px; font-size: 13px; opacity: 0.85; }
 
     /* Canva embed container (responsive 16:9) */
     .embed-wrap {
@@ -202,6 +235,17 @@
       opacity: .9;
       font-size: 14px;
       text-align: center;
+    }
+
+    /* ✅ Map: keep default colors + add green overlay tint */
+    .mapbox iframe { filter: none !important; }
+    .mapbox { position: relative; }
+    .mapbox::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 143, 63, 0.18); /* green tint */
+      pointer-events: none;
     }
   </style>
 
@@ -478,7 +522,7 @@
             <li class="timeline-item">
               <h4 class="h4 timeline-item-title">St. Vincent School Foundation, Inc</h4>
               <span>2016 - 2022</span>
-              <p class="timeline-text">Learned there High School and Senior High School</p>
+              <p class="timeline-text">Learned there Junior High School and Senior High School</p>
             </li>
           </ol>
         </section>
@@ -569,7 +613,7 @@
 
           <ul class="filter-list">
             <li class="filter-item"><button class="active" data-filter-btn type="button">All</button></li>
-            <li class="filter-item"><button data-filter-btn type="button">Web design</button></li>
+            
             <li class="filter-item"><button data-filter-btn type="button">Applications</button></li>
             <li class="filter-item"><button data-filter-btn type="button">Web development</button></li>
           </ul>
@@ -584,7 +628,7 @@
 
             <ul class="select-list">
               <li class="select-item"><button data-select-item type="button">All</button></li>
-              <li class="select-item"><button data-select-item type="button">Web design</button></li>
+             
               <li class="select-item"><button data-select-item type="button">Applications</button></li>
               <li class="select-item"><button data-select-item type="button">Web development</button></li>
             </ul>
@@ -604,6 +648,16 @@
                 <h3 class="project-title">PGT Onboard</h3>
                 <p class="project-category">Mobile Application & Internet of Things</p>
                 <p class="project-desc">Public transportation system that integrates GPS and electronic payment.</p>
+
+                <!-- ✅ Tech Stack -->
+                <div class="project-stack" aria-label="Tech stack">
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/react/ffffff" alt="React Native">React Native</span>
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/mysql/ffffff" alt="MySQL">MySQL</span>
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/mqtt/ffffff" alt="MQTT">MQTT</span>
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/googlecloud/ffffff" alt="Google Cloud Run">Cloud Run</span>
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/git/ffffff" alt="Git">Git</span>
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub">GitHub</span>
+                </div>
               </a>
             </li>
 
@@ -619,6 +673,14 @@
                 <h3 class="project-title">Fabellacares</h3>
                 <p class="project-category">Web development</p>
                 <p class="project-desc">Healthcare workflow and records system with streamlined operations.</p>
+
+                <!-- ✅ Tech Stack -->
+                <div class="project-stack" aria-label="Tech stack">
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/php/ffffff" alt="PHP">PHP</span>
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/mysql/ffffff" alt="MySQL">MySQL</span>
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/git/ffffff" alt="Git">Git</span>
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub">GitHub</span>
+                </div>
               </a>
             </li>
 
@@ -634,6 +696,14 @@
                 <h3 class="project-title">Patientcare</h3>
                 <p class="project-category">Web development</p>
                 <p class="project-desc">Patient-focused platform for managing records and service processes.</p>
+
+                <!-- ✅ Tech Stack -->
+                <div class="project-stack" aria-label="Tech stack">
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/php/ffffff" alt="PHP">PHP</span>
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/mysql/ffffff" alt="MySQL">MySQL</span>
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/git/ffffff" alt="Git">Git</span>
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub">GitHub</span>
+                </div>
               </a>
             </li>
 
@@ -649,6 +719,14 @@
                 <h3 class="project-title">Gomez Dental Clinic Management System</h3>
                 <p class="project-category">Web development</p>
                 <p class="project-desc">Appointments, patients, billing, and reports for daily clinic operations.</p>
+
+                <!-- ✅ Tech Stack -->
+                <div class="project-stack" aria-label="Tech stack">
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/php/ffffff" alt="PHP">PHP</span>
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/mysql/ffffff" alt="MySQL">MySQL</span>
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/git/ffffff" alt="Git">Git</span>
+                  <span class="stack-pill"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub">GitHub</span>
+                </div>
               </a>
             </li>
 
@@ -664,7 +742,10 @@
 
         <section class="mapbox" data-mapbox>
           <figure>
-       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1589.5008938373178!2d120.631865674142!3d15.664188966608393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391334d686b2be9%3A0xc214b50a0666e0f3!2sRamos%20National%20High%20School!5e0!3m2!1sen!2sph!4v1769218428189!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1589.5008938373178!2d120.631865674142!3d15.664188966608393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3391334d686b2be9%3A0xc214b50a0666e0f3!2sRamos%20National%20High%20School!5e0!3m2!1sen!2sph!4v1769218428189!5m2!1sen!2sph"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
           </figure>
         </section>
 
@@ -694,7 +775,6 @@
   <div class="modal-container" data-project-modal-container>
     <div class="overlay" data-project-overlay></div>
 
-    <!-- uses existing template class so your CSS likely styles it -->
     <section class="testimonials-modal project-modal" role="dialog" aria-modal="true" aria-label="Project details">
       <button class="modal-close-btn" type="button" data-project-modal-close aria-label="Close">
         <svg class="icon"><use href="#i-close" xlink:href="#i-close"></use></svg>
