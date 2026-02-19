@@ -181,23 +181,7 @@ if (selectBox && selectValue && selectItems.length) {
   });
 }
 
-/* -----------------------------
-  Contact form button enable
------------------------------- */
-const form = document.querySelector("[data-form]");
-const formInputs = Array.from(document.querySelectorAll("[data-form-input]"));
-const formBtn = document.querySelector("[data-form-btn]");
 
-function validateForm() {
-  if (!formBtn) return;
-  const allFilled = formInputs.every((input) => input.value.trim().length > 0);
-  formBtn.disabled = !allFilled;
-}
-
-if (form && formInputs.length && formBtn) {
-  formInputs.forEach((input) => input.addEventListener("input", validateForm));
-  validateForm();
-}
 
 /* -----------------------------
   Project modal (gallery + description + Canva)
